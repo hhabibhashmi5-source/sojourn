@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sojourn — The Art of Quiet Luxury Travel</title>
+  <meta name="description" content="Sojourn is a members' house for quiet luxury travel — curated escapes, long-form editorial, and bespoke advisory for journeys distilled to what matters." />
+  <meta name="theme-color" content="#1C1A17" />
+  <!-- Canonical, social & structured data (Phase 5) -->
+  <link rel="canonical" href="https://hhabibhashmi5-source.github.io/sojourn/" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Sojourn" />
+  <meta property="og:site_name" content="Sojourn" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:title" content="Sojourn — The Art of Quiet Luxury Travel" />
+  <meta property="og:description" content="Sojourn is a members' house for quiet luxury travel — curated escapes, long-form editorial, and bespoke advisory for journeys distilled to what matters." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://hhabibhashmi5-source.github.io/sojourn/" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&h=630&q=80" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Sojourn — The Art of Quiet Luxury Travel" />
+  <meta name="twitter:description" content="Sojourn is a members' house for quiet luxury travel — curated escapes, long-form editorial, and bespoke advisory for journeys distilled to what matters." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&h=630&q=80" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"TravelAgency","@id":"https://hhabibhashmi5-source.github.io/sojourn/#org","name":"Sojourn","url":"https://hhabibhashmi5-source.github.io/sojourn/","logo":"https://hhabibhashmi5-source.github.io/sojourn/assets/favicon.svg","description":"A members' house for quiet luxury travel — curated escapes, editorial and bespoke advisory.","sameAs":["https://instagram.com/","https://pinterest.com/"]},{"@type":"WebSite","@id":"https://hhabibhashmi5-source.github.io/sojourn/#website","url":"https://hhabibhashmi5-source.github.io/sojourn/","name":"Sojourn","publisher":{"@id":"https://hhabibhashmi5-source.github.io/sojourn/#org"}}]}</script>
+
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Performance: warm the image CDN + prioritise the LCP hero image -->
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
+  <link rel="preload" as="image" fetchpriority="high"
+        href="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2000&q=80" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Announcement bar -->
+  <div class="announce" id="announce">
+    <p class="announce__text">Complimentary itinerary consultation for new members this season</p>
+    <button class="announce__close" id="announceClose" aria-label="Dismiss announcement">&times;</button>
+  </div>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="header__inner container">
+      <a class="brand" href="index.html" aria-label="Sojourn home">
+        <span class="brand__mark">S</span>
+        <span class="brand__name">Sojourn</span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Primary">
+        <a class="nav__link" href="destinations.html">Destinations</a>
+        <a class="nav__link" href="journal.html">Journal</a>
+        <a class="nav__link" href="#personas">Experiences</a>
+        <a class="nav__link" href="advisory.html">Advisory</a>
+        <a class="nav__link" href="#membership">Membership</a>
+      </nav>
+
+      <div class="header__actions">
+        <button class="header__signin" id="signinBtn" data-modal="auth" type="button">Sign In</button>
+        <button class="header__signout" id="signoutBtn" type="button" hidden>Sign Out</button>
+        <a class="btn btn--solid btn--sm" id="planBtn" href="booking.html">Plan Your Journey</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <nav class="mobile-menu__nav" aria-label="Mobile">
+      <a class="mobile-menu__link" href="destinations.html">Destinations</a>
+      <a class="mobile-menu__link" href="journal.html">Journal</a>
+      <a class="mobile-menu__link" href="#personas">Experiences</a>
+      <a class="mobile-menu__link" href="advisory.html">Advisory</a>
+      <a class="mobile-menu__link" href="#membership">Membership</a>
+    </nav>
+    <div class="mobile-menu__foot">
+      <a class="btn btn--solid" href="booking.html">Plan Your Journey</a>
+      <button class="mobile-menu__signin" data-modal="auth" type="button">Sign In</button>
+    </div>
+  </div>
+
+  <main id="main">
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+      <div class="hero__media" data-bg="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2000&q=80"></div>
+      <div class="hero__overlay"></div>
+      <div class="hero__content container">
+        <p class="overline overline--light reveal">Quiet Luxury · Est. 2026</p>
+        <h1 class="hero__title reveal">Travel, distilled<br />to what matters.</h1>
+        <p class="hero__lead lead reveal">A members' house for the discerning traveler — curated escapes, considered editorial, and advisory that turns inspiration into an itinerary worth living.</p>
+        <div class="hero__actions reveal">
+          <a class="btn btn--solid" href="destinations.html">Explore Destinations</a>
+          <a class="btn btn--ghost" href="journal.html">Read the Journal</a>
+        </div>
+      </div>
+      <a class="hero__scroll" href="#manifesto" aria-label="Scroll to content">
+        <span class="hero__scroll-line"></span>
+      </a>
+    </section>
+
+    <!-- Manifesto -->
+    <section class="manifesto section" id="manifesto">
+      <div class="container container--narrow reveal">
+        <p class="overline">Our Philosophy</p>
+        <blockquote class="manifesto__quote">
+          In 2026, luxury is no longer the most glamorous address or the most opulent suite — it is the
+          <em>meaningful, the mindful, and the culturally rich.</em>
+        </blockquote>
+        <div class="rule"></div>
+        <p class="manifesto__body">We plan slowly and travel lightly. Fewer places, known deeply. Privacy over spectacle, presence over pace. This is the quiet luxury we compose for our members.</p>
+      </div>
+    </section>
+
+    <!-- Destinations -->
+    <section class="destinations section" id="destinations">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <p class="overline">Curated Escapes</p>
+            <h2 class="section-title">Places worth the distance</h2>
+          </div>
+          <a class="link-arrow" href="destinations.html">View all destinations <span aria-hidden="true">&rarr;</span></a>
+        </div>
+
+        <div class="dest-grid">
+          <article class="dest-card dest-card--feature reveal">
+            <a class="dest-card__link" href="destination.html">
+              <div class="dest-card__media">
+                <img loading="lazy" decoding="async" width="1200" height="1500"
+                     src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1200&q=80"
+                     alt="An overwater villa at a private island resort at golden hour." />
+              </div>
+              <div class="dest-card__body">
+                <p class="overline overline--light">Maldives · Private Islands</p>
+                <h3 class="dest-card__title">Overwater seclusion, redrawn</h3>
+                <p class="dest-card__desc">Whole-island buyouts and butler-served villas where the only itinerary is the tide.</p>
+                <span class="dest-card__cta">Discover <span aria-hidden="true">&rarr;</span></span>
+              </div>
+            </a>
+          </article>
+
+          <article class="dest-card reveal">
+            <a class="dest-card__link" href="destination.html">
+              <div class="dest-card__media">
+                <img loading="lazy" decoding="async" width="900" height="1100"
+                     src="https://images.unsplash.com/photo-1439066615861-d1af74d74000?auto=format&fit=crop&w=900&q=80"
+                     alt="Snow-dusted alpine peaks above a quiet valley." />
+              </div>
+              <div class="dest-card__body">
+                <p class="overline overline--light">Swiss Alps · Wellness</p>
+                <h3 class="dest-card__title">Alpine restoration</h3>
+                <p class="dest-card__desc">Low-density chalets and clinical spa programmes at altitude.</p>
+                <span class="dest-card__cta">Discover <span aria-hidden="true">&rarr;</span></span>
+              </div>
+            </a>
+          </article>
+
+          <article class="dest-card reveal">
+            <a class="dest-card__link" href="destination.html">
+              <div class="dest-card__media">
+                <img loading="lazy" decoding="async" width="900" height="1100"
+                     src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=900&q=80"
+                     alt="Whitewashed cliffside village overlooking the Mediterranean sea." />
+              </div>
+              <div class="dest-card__body">
+                <p class="overline overline--light">Amalfi · Cliffside Villas</p>
+                <h3 class="dest-card__title">A coast, privately held</h3>
+                <p class="dest-card__desc">Staffed villas and lemon-grove terraces above the tourist tide.</p>
+                <span class="dest-card__cta">Discover <span aria-hidden="true">&rarr;</span></span>
+              </div>
+            </a>
+          </article>
+
+          <article class="dest-card reveal">
+            <a class="dest-card__link" href="destination.html">
+              <div class="dest-card__media">
+                <img loading="lazy" decoding="async" width="900" height="1100"
+                     src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?auto=format&fit=crop&w=900&q=80"
+                     alt="A serene traditional garden with still water and soft light." />
+              </div>
+              <div class="dest-card__body">
+                <p class="overline overline--light">Kyoto · Cultural Immersion</p>
+                <h3 class="dest-card__title">Ritual and quiet</h3>
+                <p class="dest-card__desc">Private ryokan stays, tea masters, and mornings before the crowds.</p>
+                <span class="dest-card__cta">Discover <span aria-hidden="true">&rarr;</span></span>
+              </div>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Personas / Experiences -->
+    <section class="personas section" id="personas">
+      <div class="container">
+        <div class="section-head section-head--center reveal">
+          <p class="overline">Travel Your Way</p>
+          <h2 class="section-title">Composed around who you are</h2>
+        </div>
+
+        <div class="persona-grid">
+          <article class="persona reveal">
+            <span class="persona__num">01</span>
+            <h3 class="persona__title">The Wellness Seeker</h3>
+            <p class="persona__desc">Restorative retreats, low-density destinations, and slow-travel itineraries built around rest, not reach.</p>
+            <a class="link-arrow" href="#">Wellness journeys <span aria-hidden="true">&rarr;</span></a>
+          </article>
+
+          <article class="persona reveal">
+            <span class="persona__num">02</span>
+            <h3 class="persona__title">The Cultural Explorer</h3>
+            <p class="persona__desc">Depth over breadth — private guides, cooking with locals, and access that never feels arranged.</p>
+            <a class="link-arrow" href="#">Immersive travel <span aria-hidden="true">&rarr;</span></a>
+          </article>
+
+          <article class="persona reveal">
+            <span class="persona__num">03</span>
+            <h3 class="persona__title">The Multi-Gen Planner</h3>
+            <p class="persona__desc">Spacious private villas and seamless logistics for the whole family, quietly handled end to end.</p>
+            <a class="link-arrow" href="#">Family escapes <span aria-hidden="true">&rarr;</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Journal -->
+    <section class="journal section" id="journal">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <p class="overline">From the Journal</p>
+            <h2 class="section-title">Considered reading</h2>
+          </div>
+          <a class="link-arrow" href="journal.html">All essays <span aria-hidden="true">&rarr;</span></a>
+        </div>
+
+        <div class="journal-grid">
+          <article class="post reveal">
+            <a class="post__link" href="article.html">
+              <div class="post__media">
+                <img loading="lazy" decoding="async" width="800" height="600"
+                     src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=800&q=80"
+                     alt="Mist drifting through a forested mountain valley." />
+              </div>
+              <div class="post__body">
+                <p class="post__meta"><span>Slow Travel</span> · 6 min read</p>
+                <h3 class="post__title">Shoulder season is the new peak</h3>
+                <p class="post__excerpt">Why the discerning are trading July crowds for the softer light and open tables of the in-between months.</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="post reveal">
+            <a class="post__link" href="article.html">
+              <div class="post__media">
+                <img loading="lazy" decoding="async" width="800" height="600"
+                     src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80"
+                     alt="A calm desert landscape at dawn." />
+              </div>
+              <div class="post__body">
+                <p class="post__meta"><span>Conscious Luxury</span> · 8 min read</p>
+                <h3 class="post__title">The quiet case for conscious luxury</h3>
+                <p class="post__excerpt">Sustainability has become the ultimate status symbol. We look at what it actually asks of the traveler.</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="post reveal">
+            <a class="post__link" href="article.html">
+              <div class="post__media">
+                <img loading="lazy" decoding="async" width="800" height="600"
+                     src="https://images.unsplash.com/photo-1548574505-5e239809ee19?auto=format&fit=crop&w=800&q=80"
+                     alt="A refined, minimal interior bathed in warm daylight." />
+              </div>
+              <div class="post__body">
+                <p class="post__meta"><span>Design</span> · 5 min read</p>
+                <h3 class="post__title">Rooms that ask nothing of you</h3>
+                <p class="post__excerpt">On the rise of the un-designed suite — and why true luxury increasingly means restraint.</p>
+              </div>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Advisory band -->
+    <section class="advisory" id="advisory">
+      <div class="advisory__media" data-bg="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80"></div>
+      <div class="advisory__inner container">
+        <div class="advisory__panel reveal">
+          <p class="overline">Bespoke Advisory</p>
+          <h2 class="advisory__title">Your journey, personally composed</h2>
+          <p class="advisory__body">Every Sojourn member is paired with a dedicated advisor — a single point of contact with a black book most travelers never see. From a one-off itinerary review to full concierge, we plan the trip so you can simply arrive.</p>
+          <ul class="advisory__list">
+            <li>Dedicated travel advisor &amp; 24/7 concierge</li>
+            <li>Access to villa, aviation &amp; residence partners</li>
+            <li>Collaborative, mobile-first itinerary builder</li>
+          </ul>
+          <a class="btn btn--solid" href="advisory.html">Discover Advisory</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats section">
+      <div class="container stats__grid">
+        <div class="stat reveal">
+          <span class="stat__num" data-count="42">42</span>
+          <span class="stat__label">Private destinations</span>
+        </div>
+        <div class="stat reveal">
+          <span class="stat__num" data-count="24">24</span>
+          <span class="stat__label">Hour concierge, always</span>
+        </div>
+        <div class="stat reveal">
+          <span class="stat__num" data-count="360">360</span>
+          <span class="stat__label">Trusted local partners</span>
+        </div>
+        <div class="stat reveal">
+          <span class="stat__num" data-count="15">15</span>
+          <span class="stat__label">Years of quiet planning</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Membership / Newsletter -->
+    <section class="membership section" id="membership">
+      <div class="container container--narrow membership__inner reveal">
+        <p class="overline">The Quiet List</p>
+        <h2 class="membership__title">Join a smaller way to travel</h2>
+        <p class="membership__body">Members receive our editorial, early booking windows, and invitations held back from the public. No noise — a few considered notes a season.</p>
+        <form class="signup" id="signupForm" novalidate>
+          <label class="sr-only" for="email">Email address</label>
+          <input class="signup__input" type="email" id="email" name="email" placeholder="you@email.com" autocomplete="email" required />
+          <button class="btn btn--solid" type="submit">Request an Invitation</button>
+        </form>
+        <p class="signup__note" id="signupNote" role="status">By joining you agree to our privacy policy. Unsubscribe anytime.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <a class="brand brand--light" href="index.html" aria-label="Sojourn home">
+          <span class="brand__mark">S</span>
+          <span class="brand__name">Sojourn</span>
+        </a>
+        <p class="footer__tagline">The art of quiet luxury travel. Fewer places, known deeply.</p>
+      </div>
+
+      <nav class="footer__col" aria-label="Explore">
+        <h4 class="footer__heading">Explore</h4>
+        <a href="#destinations">Destinations</a>
+        <a href="#journal">Journal</a>
+        <a href="#personas">Experiences</a>
+        <a href="advisory.html">Advisory</a>
+      </nav>
+
+      <nav class="footer__col" aria-label="House">
+        <h4 class="footer__heading">The House</h4>
+        <a href="#membership">Membership</a>
+        <a href="#advisory">Concierge</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </nav>
+
+      <nav class="footer__col" aria-label="Legal">
+        <h4 class="footer__heading">Legal</h4>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Sustainability</a>
+      </nav>
+
+      <div class="footer__col footer__social">
+        <h4 class="footer__heading">Follow</h4>
+        <a href="#" aria-label="Instagram">Instagram</a>
+        <a href="#" aria-label="Pinterest">Pinterest</a>
+        <a href="#" aria-label="Journal RSS">Newsletter</a>
+      </div>
+    </div>
+    <div class="container footer__bar">
+      <p>&copy; <span id="year">2026</span> Sojourn. All rights reserved.</p>
+      <p class="footer__made">Composed quietly, for the discerning traveler.</p>
+    </div>
+  </footer>
+
+  <!-- ============ Inquiry modal (advisory / booking) ============ -->
+  <dialog class="modal" id="inquiryModal" aria-labelledby="inquiryTitle">
+    <form class="modal__panel" id="inquiryForm" novalidate>
+      <button class="modal__close" type="button" data-close aria-label="Close">&times;</button>
+      <p class="overline">Bespoke Advisory</p>
+      <h2 class="modal__title" id="inquiryTitle">Begin your journey</h2>
+      <p class="modal__sub">Tell us a little, and a dedicated advisor will be in touch. No obligation.</p>
+
+      <div class="field-grid">
+        <div class="field">
+          <label for="iqName">Full name</label>
+          <input id="iqName" name="name" type="text" autocomplete="name" required />
+        </div>
+        <div class="field">
+          <label for="iqEmail">Email</label>
+          <input id="iqEmail" name="email" type="email" autocomplete="email" required />
+        </div>
+        <div class="field">
+          <label for="iqDestination">Destination of interest</label>
+          <input id="iqDestination" name="destination" type="text" placeholder="Maldives, Kyoto…" />
+        </div>
+        <div class="field">
+          <label for="iqDates">Approximate dates</label>
+          <input id="iqDates" name="travel_dates" type="text" placeholder="Sept 2026, flexible…" />
+        </div>
+        <div class="field">
+          <label for="iqParty">Party size</label>
+          <input id="iqParty" name="party_size" type="number" min="1" max="30" placeholder="2" />
+        </div>
+        <div class="field">
+          <label for="iqType">Enquiry type</label>
+          <select id="iqType" name="type">
+            <option value="advisory">Advisory / concierge</option>
+            <option value="booking">Specific booking</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label for="iqMessage">What are you dreaming of?</label>
+        <textarea id="iqMessage" name="message" rows="3" placeholder="A quiet week, mostly resting, somewhere warm…"></textarea>
+      </div>
+
+      <button class="btn btn--solid modal__submit" type="submit">Request Consultation</button>
+      <p class="modal__note" id="inquiryNote" role="status"></p>
+    </form>
+  </dialog>
+
+  <!-- ============ Auth modal (sign in / register) ============ -->
+  <dialog class="modal modal--sm" id="authModal" aria-labelledby="authTitle">
+    <form class="modal__panel" id="authForm" novalidate>
+      <button class="modal__close" type="button" data-close aria-label="Close">&times;</button>
+      <p class="overline">Membership</p>
+      <h2 class="modal__title" id="authTitle" data-signin="Welcome back" data-register="Join Sojourn">Welcome back</h2>
+      <p class="modal__sub" id="authSub" data-signin="Sign in to your member profile." data-register="Create your member profile.">Sign in to your member profile.</p>
+
+      <div class="field">
+        <label for="auEmail">Email</label>
+        <input id="auEmail" name="email" type="email" autocomplete="email" required />
+      </div>
+      <div class="field">
+        <label for="auPassword">Password</label>
+        <input id="auPassword" name="password" type="password" autocomplete="current-password" minlength="6" required />
+      </div>
+
+      <button class="btn btn--solid modal__submit" type="submit" id="authSubmit" data-signin="Sign In" data-register="Create Account">Sign In</button>
+      <p class="modal__note" id="authNote" role="status"></p>
+      <p class="modal__switch">
+        <span id="authSwitchText">New to Sojourn?</span>
+        <button type="button" id="authSwitch" class="link-inline" data-signin="Create an account" data-register="Sign in instead">Create an account</button>
+      </p>
+    </form>
+  </dialog>
+
+  <!-- Data layer: supabase-js UMD → config → client → app -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/supabase-client.js"></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/forms.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Sojourn monogram">
+  <rect width="64" height="64" rx="12" fill="#1C1A17"/>
+  <circle cx="32" cy="32" r="24" fill="none" stroke="#A88B67" stroke-width="1.5" opacity="0.6"/>
+  <text x="32" y="43" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif"
+        font-size="34" font-weight="500" fill="#EFE9DE" letter-spacing="0.5">S</text>
+</svg>

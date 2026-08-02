@@ -1,0 +1,19 @@
+{
+  "name": "Sojourn — Quiet Luxury Travel",
+  "short_name": "Sojourn",
+  "description": "A members' house for quiet luxury travel — curated escapes, editorial and bespoke advisory.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#F6F2EA",
+  "theme_color": "#1C1A17",
+  "icons": [
+    {
+      "src": "assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

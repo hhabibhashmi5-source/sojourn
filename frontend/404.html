@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, follow" />
+  <title>Page not found — Sojourn</title>
+  <meta name="theme-color" content="#1C1A17" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+  <style>
+    .nf { min-height: 78vh; display: flex; align-items: center; justify-content: center; text-align: center; background: var(--cream-2); }
+    .nf__inner { max-width: 560px; padding: 2rem; }
+    .nf__code { font-family: "Cormorant Garamond", serif; font-size: clamp(4rem, 14vw, 8rem); line-height: 1; color: var(--gold-deep); }
+    .nf__title { font-size: var(--fs-h3, 2rem); margin: 0.5rem 0 0.75rem; }
+    .nf__text { color: var(--taupe); margin-bottom: 1.75rem; line-height: 1.6; }
+    .nf__actions { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+  </style>
+</head>
+<body>
+  <header class="header header--solid">
+    <div class="header__inner container">
+      <a class="brand" href="/sojourn/" aria-label="Sojourn home"><span class="brand__mark">S</span><span class="brand__name">Sojourn</span></a>
+      <a class="btn btn--ghost-dark btn--sm" href="/sojourn/">Home</a>
+    </div>
+  </header>
+
+  <main class="nf">
+    <div class="nf__inner">
+      <p class="overline">Lost the trail</p>
+      <div class="nf__code">404</div>
+      <h1 class="nf__title">This path leads nowhere</h1>
+      <p class="nf__text">The page you were looking for has wandered off. Let us guide you back to somewhere beautiful.</p>
+      <div class="nf__actions">
+        <a class="btn btn--solid" href="/sojourn/">Back to Home</a>
+        <a class="btn btn--ghost-dark" href="/sojourn/destinations.html">Explore Destinations</a>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plan Your Journey — Sojourn</title>
+  <meta name="description" content="Start your bespoke Sojourn journey. Share where, when and how you like to travel — an advisor returns a considered proposal within two working days." />
+  <meta name="theme-color" content="#1C1A17" />
+  <!-- Canonical, social & structured data (Phase 5) -->
+  <link rel="canonical" href="https://hhabibhashmi5-source.github.io/sojourn/booking.html" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Sojourn" />
+  <meta property="og:site_name" content="Sojourn" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:title" content="Plan Your Journey — Sojourn" />
+  <meta property="og:description" content="Start your bespoke Sojourn journey. Share where, when and how you like to travel — an advisor returns a considered proposal within two working days." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://hhabibhashmi5-source.github.io/sojourn/booking.html" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&h=630&q=80" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Plan Your Journey — Sojourn" />
+  <meta name="twitter:description" content="Start your bespoke Sojourn journey. Share where, when and how you like to travel — an advisor returns a considered proposal within two working days." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&h=630&q=80" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","name":"Plan Your Journey — Sojourn","description":"Start your bespoke Sojourn journey. Share where, when and how you like to travel — an advisor returns a considered proposal within two working days.","url":"https://hhabibhashmi5-source.github.io/sojourn/booking.html","isPartOf":{"@id":"https://hhabibhashmi5-source.github.io/sojourn/#website"}}]}</script>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="header header--solid" id="header">
+    <div class="header__inner container">
+      <a class="brand" href="index.html" aria-label="Sojourn home"><span class="brand__mark">S</span><span class="brand__name">Sojourn</span></a>
+      <nav class="nav" id="nav" aria-label="Primary">
+        <a class="nav__link" href="destinations.html">Destinations</a>
+        <a class="nav__link" href="journal.html">Journal</a>
+        <a class="nav__link" href="index.html#personas">Experiences</a>
+        <a class="nav__link" href="advisory.html">Advisory</a>
+        <a class="nav__link" href="#" data-modal="auth">Membership</a>
+      </nav>
+      <div class="header__actions">
+        <button class="header__signin" id="signinBtn" data-modal="auth" type="button">Sign In</button>
+        <button class="header__signout" id="signoutBtn" type="button" hidden>Sign Out</button>
+        <a class="btn btn--solid btn--sm" href="booking.html">Plan Your Journey</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <nav class="mobile-menu__nav" aria-label="Mobile">
+      <a class="mobile-menu__link" href="destinations.html">Destinations</a>
+      <a class="mobile-menu__link" href="journal.html">Journal</a>
+      <a class="mobile-menu__link" href="index.html#personas">Experiences</a>
+      <a class="mobile-menu__link" href="advisory.html">Advisory</a>
+      <a class="mobile-menu__link" href="#" data-modal="auth">Membership</a>
+    </nav>
+    <div class="mobile-menu__foot">
+      <a class="btn btn--solid" href="booking.html">Plan Your Journey</a>
+      <button class="mobile-menu__signin" data-modal="auth" type="button">Sign In</button>
+    </div>
+  </div>
+
+  <main id="main">
+    <section class="page-hero page-hero--cream">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span>Plan Your Journey</nav>
+        <p class="overline">Begin</p>
+        <h1 class="page-hero__title">Plan your journey</h1>
+        <p class="page-hero__sub">A few quiet questions. No payment now — just the beginning of a proposal, returned by your advisor within two working days.</p>
+      </div>
+    </section>
+
+    <section class="booking section">
+      <div class="container">
+        <div class="booking__layout">
+
+          <!-- Wizard -->
+          <div class="wizard" id="wizardCard">
+            <div class="wizard__progress" aria-hidden="true">
+              <span class="wizard__dot is-current"></span>
+              <span class="wizard__dot"></span>
+              <span class="wizard__dot"></span>
+              <span class="wizard__dot"></span>
+            </div>
+            <p class="wizard__stepno" id="wizStepNo">Step 1 of 4</p>
+
+            <form id="bookingWizard" novalidate>
+              <!-- Step 1 -->
+              <div class="wizard__panel is-active">
+                <h2 class="wizard__steptitle">Where &amp; when</h2>
+                <div class="field-grid">
+                  <div class="field">
+                    <label for="bkDest">Destination</label>
+                    <select id="bkDest" data-input="destination">
+                      <option value="">Select…</option>
+                      <option>Maldives</option>
+                      <option>Swiss Alps</option>
+                      <option>Amalfi Coast</option>
+                      <option>Kyoto</option>
+                      <option>Cyclades</option>
+                      <option>Provence</option>
+                      <option>Bali</option>
+                      <option>Norway</option>
+                      <option>Marrakech</option>
+                      <option value="Not sure yet">Not sure yet</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="bkNights">Nights</label>
+                    <input id="bkNights" type="number" min="1" max="60" data-input="nights" placeholder="7" />
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="bkWhen">When (approximately)</label>
+                  <input id="bkWhen" type="text" data-input="when" placeholder="September 2026 · flexible by a week" />
+                </div>
+              </div>
+
+              <!-- Step 2 -->
+              <div class="wizard__panel">
+                <h2 class="wizard__steptitle">Who &amp; how</h2>
+                <div class="field-grid">
+                  <div class="field"><label for="bkAdults">Adults</label><input id="bkAdults" type="number" min="1" max="20" data-input="adults" value="2" /></div>
+                  <div class="field"><label for="bkChildren">Children</label><input id="bkChildren" type="number" min="0" max="20" data-input="children" value="0" /></div>
+                </div>
+                <div class="field">
+                  <label>Occasion</label>
+                  <div class="option-grid">
+                    <button type="button" class="option" data-field="occasion" data-value="Wellness">Wellness</button>
+                    <button type="button" class="option" data-field="occasion" data-value="Honeymoon">Honeymoon</button>
+                    <button type="button" class="option" data-field="occasion" data-value="Family">Family</button>
+                    <button type="button" class="option" data-field="occasion" data-value="Cultural">Cultural</button>
+                    <button type="button" class="option" data-field="occasion" data-value="Adventure">Adventure</button>
+                    <button type="button" class="option" data-field="occasion" data-value="Celebration">Celebration</button>
+                  </div>
+                </div>
+                <div class="field">
+                  <label>Where you'll stay</label>
+                  <div class="option-grid option-grid--2">
+                    <button type="button" class="option" data-field="style" data-value="Private villa">Private villa</button>
+                    <button type="button" class="option" data-field="style" data-value="Boutique hotel">Boutique hotel</button>
+                    <button type="button" class="option" data-field="style" data-value="Resort suite">Resort suite</button>
+                    <button type="button" class="option" data-field="style" data-value="Whole-island">Whole-island</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Step 3 -->
+              <div class="wizard__panel">
+                <h2 class="wizard__steptitle">Preferences</h2>
+                <div class="field">
+                  <label>Interests <small style="text-transform:none;letter-spacing:0;color:var(--taupe-2);">(choose any)</small></label>
+                  <div class="option-grid">
+                    <button type="button" class="option" data-field="interests" data-multi data-value="Spa &amp; wellness">Spa &amp; wellness</button>
+                    <button type="button" class="option" data-field="interests" data-multi data-value="Fine dining">Fine dining</button>
+                    <button type="button" class="option" data-field="interests" data-multi data-value="Diving &amp; water">Diving &amp; water</button>
+                    <button type="button" class="option" data-field="interests" data-multi data-value="Hiking &amp; nature">Hiking &amp; nature</button>
+                    <button type="button" class="option" data-field="interests" data-multi data-value="Culture &amp; guides">Culture &amp; guides</button>
+                    <button type="button" class="option" data-field="interests" data-multi data-value="Kids' programme">Kids' programme</button>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="bkBudget">Budget per night</label>
+                  <select id="bkBudget" data-input="budget">
+                    <option value="">Select…</option>
+                    <option>$1,000 – 2,000</option>
+                    <option>$2,000 – 5,000</option>
+                    <option>$5,000 – 10,000</option>
+                    <option>$10,000+</option>
+                    <option>Flexible</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="bkNotes">Anything else?</label>
+                  <textarea id="bkNotes" rows="3" data-input="notes" placeholder="Dietary needs, must-haves, things to avoid…"></textarea>
+                </div>
+              </div>
+
+              <!-- Step 4 -->
+              <div class="wizard__panel">
+                <h2 class="wizard__steptitle">Your details</h2>
+                <div class="field-grid">
+                  <div class="field"><label for="bkName">Full name</label><input id="bkName" type="text" data-input="name" autocomplete="name" /></div>
+                  <div class="field"><label for="bkEmail">Email</label><input id="bkEmail" type="email" data-input="email" autocomplete="email" /></div>
+                </div>
+                <div class="field"><label for="bkPhone">Phone (optional)</label><input id="bkPhone" type="tel" data-input="phone" autocomplete="tel" /></div>
+                <p style="font-size:0.85rem;color:var(--taupe);margin-top:0.8rem;">We'll only use these to plan your trip. No spam, ever.</p>
+              </div>
+
+              <div class="wizard__nav">
+                <button type="button" class="btn btn--ghost-dark" id="wizBack">Back</button>
+                <button type="button" class="btn btn--solid" id="wizNext">Continue</button>
+              </div>
+              <p class="wizard__note" id="wizNote" role="status"></p>
+            </form>
+          </div>
+
+          <!-- Live summary -->
+          <aside class="summary" aria-label="Trip summary">
+            <p class="summary__title">Your journey</p>
+            <p class="summary__sub">A living summary as you go</p>
+            <div class="summary__row"><span class="summary__key">Destination</span><span class="summary__val is-empty" id="sumDest" data-empty="To decide">To decide</span></div>
+            <div class="summary__row"><span class="summary__key">Dates</span><span class="summary__val is-empty" id="sumWhen" data-empty="To decide">To decide</span></div>
+            <div class="summary__row"><span class="summary__key">Travellers</span><span class="summary__val" id="sumWho">2 adults</span></div>
+            <div class="summary__row"><span class="summary__key">Occasion</span><span class="summary__val is-empty" id="sumOccasion" data-empty="Any">Any</span></div>
+            <div class="summary__row"><span class="summary__key">Stay</span><span class="summary__val is-empty" id="sumStyle" data-empty="Advisor's pick">Advisor's pick</span></div>
+            <div class="summary__row"><span class="summary__key">Budget</span><span class="summary__val is-empty" id="sumBudget" data-empty="Flexible">Flexible</span></div>
+            <p class="summary__foot"><span class="map-box__pin" style="font-size:1rem;">✦</span> No payment now — a proposal first.</p>
+          </aside>
+
+        </div>
+
+        <!-- Confirmation -->
+        <div class="booking-confirm" id="bookingConfirm">
+          <span class="booking-confirm__mark">✦</span>
+          <h2 class="booking-confirm__title">Request received</h2>
+          <p class="booking-confirm__text">Thank you, <strong id="confName">traveller</strong>. Your <strong id="confDest">journey</strong> request is with our advisors — expect a considered proposal within two working days.</p>
+          <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+            <a class="btn btn--solid" href="index.html">Back to Home</a>
+            <a class="btn btn--ghost-dark" href="destinations.html">Explore Destinations</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand"><a class="brand brand--light" href="index.html" aria-label="Sojourn home"><span class="brand__mark">S</span><span class="brand__name">Sojourn</span></a><p class="footer__tagline">The art of quiet luxury travel. Fewer places, known deeply.</p></div>
+      <nav class="footer__col" aria-label="Explore"><h4 class="footer__heading">Explore</h4><a href="destinations.html">Destinations</a><a href="journal.html">Journal</a><a href="index.html#personas">Experiences</a><a href="advisory.html">Advisory</a></nav>
+      <nav class="footer__col" aria-label="House"><h4 class="footer__heading">The House</h4><a href="#" data-modal="auth">Membership</a><a href="booking.html">Plan a Trip</a><a href="#">About</a><a href="#">Contact</a></nav>
+      <nav class="footer__col" aria-label="Legal"><h4 class="footer__heading">Legal</h4><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Sustainability</a></nav>
+      <div class="footer__col footer__social"><h4 class="footer__heading">Follow</h4><a href="#">Instagram</a><a href="#">Pinterest</a><a href="#">Newsletter</a></div>
+    </div>
+    <div class="container footer__bar"><p>&copy; <span id="year">2026</span> Sojourn. All rights reserved.</p><p class="footer__made">Composed quietly, for the discerning traveler.</p></div>
+  </footer>
+
+  <!-- Auth modal -->
+  <dialog class="modal modal--sm" id="authModal" aria-labelledby="authTitle">
+    <form class="modal__panel" id="authForm" novalidate>
+      <button class="modal__close" type="button" data-close aria-label="Close">&times;</button>
+      <p class="overline">Membership</p>
+      <h2 class="modal__title" id="authTitle" data-signin="Welcome back" data-register="Join Sojourn">Welcome back</h2>
+      <p class="modal__sub" id="authSub" data-signin="Sign in to your member profile." data-register="Create your member profile.">Sign in to your member profile.</p>
+      <div class="field"><label for="auEmail">Email</label><input id="auEmail" type="email" autocomplete="email" required /></div>
+      <div class="field"><label for="auPassword">Password</label><input id="auPassword" type="password" autocomplete="current-password" minlength="6" required /></div>
+      <button class="btn btn--solid modal__submit" type="submit" id="authSubmit" data-signin="Sign In" data-register="Create Account">Sign In</button>
+      <p class="modal__note" id="authNote" role="status"></p>
+      <p class="modal__switch"><span id="authSwitchText">New to Sojourn?</span><button type="button" id="authSwitch" class="link-inline" data-signin="Create an account" data-register="Sign in instead">Create an account</button></p>
+    </form>
+  </dialog>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/supabase-client.js"></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/forms.js" defer></script>
+  <script src="js/booking.js" defer></script>
+</body>
+</html>

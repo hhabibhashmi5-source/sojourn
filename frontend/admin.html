@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Advisor Desk — Sojourn</title>
+  <meta name="description" content="Private advisor desk for Sojourn inquiries and subscribers." />
+  <meta name="theme-color" content="#1C1A17" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+  <style>
+    /* ---------- Advisor desk (admin) ---------- */
+    .desk { padding-block: clamp(2rem, 5vw, 3.5rem) 5rem; }
+    .desk__bar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.75rem; }
+    .desk__bar h1 { font-size: var(--fs-h3, 1.9rem); }
+    .desk__who { font-size: 0.85rem; color: var(--taupe); }
+    .desk__actions { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+
+    .stat-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+    .stat { border: 1px solid var(--line); border-radius: 14px; padding: 1.1rem 1.25rem; background: var(--cream-2); }
+    .stat__n { font-family: "Cormorant Garamond", serif; font-size: 2.2rem; line-height: 1; color: var(--ink); }
+    .stat__k { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--taupe-2); margin-top: 0.35rem; }
+
+    .tabs { display: flex; gap: 0.5rem; margin-bottom: 1.25rem; }
+    .tab { font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; padding: 0.5rem 1.1rem; border: 1px solid var(--line); border-radius: 999px; color: var(--taupe); background: transparent; cursor: pointer; transition: all 0.2s var(--ease); }
+    .tab.is-active { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+
+    .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 14px; }
+    table.desk-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; min-width: 720px; }
+    .desk-table th { text-align: left; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--taupe-2); font-weight: 600; padding: 0.85rem 1rem; border-bottom: 1px solid var(--line); background: var(--cream-2); white-space: nowrap; }
+    .desk-table td { padding: 0.9rem 1rem; border-bottom: 1px solid var(--line); vertical-align: top; color: var(--ink); }
+    .desk-table tr:last-child td { border-bottom: none; }
+    .desk-table tr:hover td { background: rgba(0,0,0,0.015); }
+    .pill { display: inline-block; font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 999px; font-weight: 600; }
+    .pill--booking { background: #e9efe6; color: #3f5a3a; }
+    .pill--advisory { background: #efe7dd; color: #7a5a30; }
+    .cell-msg { max-width: 320px; white-space: pre-wrap; color: var(--taupe); font-size: 0.82rem; }
+    .cell-when { white-space: nowrap; color: var(--taupe); font-size: 0.8rem; }
+    .cell-mail a { color: var(--gold-deep); }
+
+    .desk-empty { padding: 3rem 1rem; text-align: center; color: var(--taupe); }
+    .desk-hint { font-size: 0.82rem; color: var(--taupe); margin-top: 1rem; }
+
+    /* Sign-in gate */
+    .gate { max-width: 420px; margin: 4rem auto; border: 1px solid var(--line); border-radius: 16px; padding: 2.25rem; background: var(--cream-2); }
+    .gate .overline { text-align: center; }
+    .gate h1 { text-align: center; font-size: 1.7rem; margin: 0.4rem 0 0.35rem; }
+    .gate__sub { text-align: center; color: var(--taupe); font-size: 0.9rem; margin-bottom: 1.5rem; }
+    .gate .field { margin-bottom: 1rem; }
+    .gate__submit { width: 100%; margin-top: 0.5rem; }
+    .gate__note { text-align: center; font-size: 0.85rem; margin-top: 0.9rem; min-height: 1.2em; }
+    .gate__note.is-error { color: #a4443a; }
+    .gate__note.is-success { color: #3f5a3a; }
+    .is-hidden { display: none !important; }
+
+    /* Small screens: drop the middle label + let the bar breathe */
+    @media (max-width: 480px) {
+      header .desk__who { display: none; }
+      .desk__bar h1 { font-size: 1.5rem; }
+      .stat-row { grid-template-columns: 1fr 1fr; }
+      .tabs { flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header header--solid" id="header">
+    <div class="header__inner container">
+      <a class="brand" href="index.html" aria-label="Sojourn home"><span class="brand__mark">S</span><span class="brand__name">Sojourn</span></a>
+      <span class="desk__who" style="letter-spacing:0.14em;text-transform:uppercase;font-size:0.7rem;">Advisor Desk</span>
+      <a class="btn btn--ghost-dark btn--sm" href="index.html">← Back to site</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Sign-in gate -->
+    <section class="gate" id="deskGate">
+      <p class="overline">Private</p>
+      <h1>Advisor Desk</h1>
+      <p class="gate__sub">Sign in with your owner account to view inquiries.</p>
+      <form id="gateForm" novalidate>
+        <div class="field"><label for="gateEmail">Email</label><input id="gateEmail" type="email" autocomplete="email" required /></div>
+        <div class="field"><label for="gatePassword">Password</label><input id="gatePassword" type="password" autocomplete="current-password" minlength="6" required /></div>
+        <button class="btn btn--solid gate__submit" type="submit" id="gateSubmit">Sign In</button>
+        <p class="gate__note" id="gateNote" role="status"></p>
+      </form>
+    </section>
+
+    <!-- Desk (owner only) -->
+    <section class="desk container is-hidden" id="deskPanel">
+      <div class="desk__bar">
+        <div>
+          <h1>Inquiries</h1>
+          <p class="desk__who" id="deskWho"></p>
+        </div>
+        <div class="desk__actions">
+          <button class="btn btn--ghost-dark btn--sm" id="deskRefresh" type="button">Refresh</button>
+          <button class="btn btn--ghost-dark btn--sm" id="deskSignout" type="button">Sign Out</button>
+        </div>
+      </div>
+
+      <div class="stat-row">
+        <div class="stat"><div class="stat__n" id="statTotal">—</div><div class="stat__k">Total inquiries</div></div>
+        <div class="stat"><div class="stat__n" id="statBooking">—</div><div class="stat__k">Booking requests</div></div>
+        <div class="stat"><div class="stat__n" id="statAdvisory">—</div><div class="stat__k">Advisory requests</div></div>
+        <div class="stat"><div class="stat__n" id="statSubs">—</div><div class="stat__k">Subscribers</div></div>
+      </div>
+
+      <div class="tabs" role="tablist">
+        <button class="tab is-active" id="tabAll" type="button" data-filter="all">All</button>
+        <button class="tab" id="tabBooking" type="button" data-filter="booking">Booking</button>
+        <button class="tab" id="tabAdvisory" type="button" data-filter="advisory">Advisory</button>
+      </div>
+
+      <div class="table-wrap">
+        <table class="desk-table">
+          <thead>
+            <tr>
+              <th>Type</th><th>Name</th><th>Email</th><th>Destination</th>
+              <th>Dates</th><th>Party</th><th>Notes</th><th>Received</th>
+            </tr>
+          </thead>
+          <tbody id="deskRows"></tbody>
+        </table>
+        <div class="desk-empty is-hidden" id="deskEmpty">No inquiries yet.</div>
+      </div>
+      <p class="desk-hint">Read-only. Inquiries are protected by row-level security — only your owner account can see this.</p>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js?v=3"></script>
+  <script src="js/supabase-client.js?v=3"></script>
+  <script src="js/admin.js?v=3" defer></script>
+</body>
+</html>

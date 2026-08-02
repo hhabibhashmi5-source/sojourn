@@ -1,0 +1,19 @@
+# Dependencies — only used for local QA/browser testing, never part of the site
+node_modules/
+package-lock.json
+
+# Test / tooling artifacts
+test-results/
+playwright-report/
+*.log
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local env / secrets (the site's publishable Supabase key lives in frontend/js/config.js
+# and is safe to commit; never add the service_role key or a .env with secrets)
+.env
+.env.*

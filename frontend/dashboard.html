@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Your Sojourn — Member Dashboard</title>
+  <meta name="description" content="Your Sojourn member dashboard — your requests, saved trips and profile." />
+  <meta name="theme-color" content="#1C1A17" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+  <style>
+    /* ---------- Member dashboard ---------- */
+    .dash { padding-block: clamp(2rem, 5vw, 3.5rem) 5rem; }
+    .dash__grid { display: grid; grid-template-columns: 320px 1fr; gap: 2rem; align-items: start; }
+    @media (max-width: 860px) { .dash__grid { grid-template-columns: 1fr; } }
+
+    .card { border: 1px solid var(--line); border-radius: 16px; padding: 1.5rem 1.6rem; background: var(--cream-2); }
+    .card + .card { margin-top: 1.5rem; }
+    .card__title { font-family: "Cormorant Garamond", serif; font-size: 1.5rem; color: var(--ink); margin-bottom: 1rem; }
+    .card__title small { display:block; font-family:"Inter",sans-serif; font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--taupe-2); margin-bottom:0.35rem; }
+
+    .profile__row { display: flex; justify-content: space-between; gap: 1rem; padding: 0.6rem 0; border-bottom: 1px solid var(--line); font-size: 0.9rem; }
+    .profile__row:last-child { border-bottom: none; }
+    .profile__k { color: var(--taupe-2); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.7rem; align-self: center; }
+    .profile__v { color: var(--ink); text-align: right; word-break: break-word; }
+
+    .req { border: 1px solid var(--line); border-radius: 12px; padding: 1rem 1.1rem; background: var(--cream); }
+    .req + .req { margin-top: 0.85rem; }
+    .req__head { display: flex; justify-content: space-between; align-items: center; gap: 0.75rem; margin-bottom: 0.4rem; }
+    .req__dest { font-weight: 500; color: var(--ink); }
+    .req__when { font-size: 0.78rem; color: var(--taupe-2); white-space: nowrap; }
+    .req__meta { font-size: 0.84rem; color: var(--taupe); }
+    .pill { display: inline-block; font-size: 0.66rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 999px; font-weight: 600; }
+    .pill--booking { background: #e9efe6; color: #3f5a3a; }
+    .pill--advisory { background: #efe7dd; color: #7a5a30; }
+
+    .trip-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1rem; }
+    .trip { position: relative; border: 1px solid var(--line); border-radius: 12px; padding: 1.1rem; background: var(--cream); }
+    .trip__dest { font-family: "Cormorant Garamond", serif; font-size: 1.25rem; color: var(--ink); }
+    .trip__note { font-size: 0.82rem; color: var(--taupe); margin-top: 0.3rem; }
+    .trip__remove { position: absolute; top: 0.6rem; right: 0.6rem; width: 1.6rem; height: 1.6rem; border-radius: 50%; border: 1px solid var(--line); background: var(--cream-2); color: var(--taupe); cursor: pointer; line-height: 1; font-size: 1rem; transition: all 0.2s var(--ease); }
+    .trip__remove:hover { background: #a4443a; color: #fff; border-color: #a4443a; }
+
+    .add-trip { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 1.25rem; }
+    .add-trip select { flex: 1; min-width: 160px; }
+
+    .dash-empty { color: var(--taupe); font-size: 0.9rem; padding: 0.5rem 0; }
+    .dash-note { font-size: 0.85rem; margin-top: 0.75rem; min-height: 1.1em; }
+    .dash-note.is-error { color: #a4443a; }
+    .dash-note.is-success { color: #3f5a3a; }
+    .is-hidden { display: none !important; }
+
+    .signin-prompt { max-width: 460px; margin: 2rem auto; text-align: center; }
+    .signin-prompt .card { padding: 2.5rem 2rem; }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="header header--solid" id="header">
+    <div class="header__inner container">
+      <a class="brand" href="index.html" aria-label="Sojourn home"><span class="brand__mark">S</span><span class="brand__name">Sojourn</span></a>
+      <nav class="nav" id="nav" aria-label="Primary">
+        <a class="nav__link" href="destinations.html">Destinations</a>
+        <a class="nav__link" href="journal.html">Journal</a>
+        <a class="nav__link" href="index.html#personas">Experiences</a>
+        <a class="nav__link" href="advisory.html">Advisory</a>
+        <a class="nav__link is-active" href="#" data-modal="auth">Membership</a>
+      </nav>
+      <div class="header__actions">
+        <button class="header__signin" id="signinBtn" data-modal="auth" type="button">Sign In</button>
+        <button class="header__signout" id="signoutBtn" type="button" hidden>Sign Out</button>
+        <a class="btn btn--solid btn--sm" href="booking.html">Plan Your Journey</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <nav class="mobile-menu__nav" aria-label="Mobile">
+      <a class="mobile-menu__link" href="destinations.html">Destinations</a>
+      <a class="mobile-menu__link" href="journal.html">Journal</a>
+      <a class="mobile-menu__link" href="index.html#personas">Experiences</a>
+      <a class="mobile-menu__link" href="advisory.html">Advisory</a>
+      <a class="mobile-menu__link" href="#" data-modal="auth">Membership</a>
+    </nav>
+    <div class="mobile-menu__foot">
+      <a class="btn btn--solid" href="booking.html">Plan Your Journey</a>
+      <button class="mobile-menu__signin" data-modal="auth" type="button">Sign In</button>
+    </div>
+  </div>
+
+  <main id="main">
+    <section class="page-hero page-hero--cream">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span>Your Dashboard</nav>
+        <p class="overline">Members</p>
+        <h1 class="page-hero__title">Your Sojourn</h1>
+        <p class="page-hero__sub" id="dashHeroSub">Your requests, saved trips and profile — all in one quiet place.</p>
+      </div>
+    </section>
+
+    <!-- Signed-out prompt -->
+    <section class="section" id="dashSignedOut">
+      <div class="container signin-prompt">
+        <div class="card">
+          <p class="overline">Members only</p>
+          <h2 class="card__title" style="font-size:1.7rem;">Sign in to continue</h2>
+          <p style="color:var(--taupe);margin-bottom:1.5rem;">Access your saved trips and the requests you've sent our advisors.</p>
+          <button class="btn btn--solid" data-modal="auth" type="button">Sign In or Join</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Signed-in dashboard -->
+    <section class="dash container is-hidden" id="dashSignedIn">
+      <div class="dash__grid">
+
+        <!-- Left: profile -->
+        <aside>
+          <div class="card">
+            <h2 class="card__title"><small>Profile</small><span id="dashName">Member</span></h2>
+            <div class="profile__row"><span class="profile__k">Username</span><span class="profile__v" id="dashUsername">—</span></div>
+            <div class="profile__row"><span class="profile__k">Email</span><span class="profile__v" id="dashEmail">—</span></div>
+            <div class="profile__row"><span class="profile__k">Member since</span><span class="profile__v" id="dashSince">—</span></div>
+            <div class="profile__row"><span class="profile__k">Requests</span><span class="profile__v" id="dashReqCount">—</span></div>
+            <div class="profile__row"><span class="profile__k">Saved trips</span><span class="profile__v" id="dashTripCount">—</span></div>
+            <button class="btn btn--ghost-dark btn--sm" id="dashSignout" type="button" style="width:100%;margin-top:1.25rem;">Sign Out</button>
+          </div>
+        </aside>
+
+        <!-- Right: requests + trips -->
+        <div>
+          <div class="card">
+            <h2 class="card__title"><small>Your requests</small>Sent to our advisors</h2>
+            <div id="dashRequests"><p class="dash-empty">Loading…</p></div>
+          </div>
+
+          <div class="card">
+            <h2 class="card__title"><small>Saved trips</small>Your wishlist</h2>
+            <div id="dashTrips"><p class="dash-empty">Loading…</p></div>
+            <div class="add-trip">
+              <select id="tripSelect" aria-label="Destination to save">
+                <option value="">Add a destination…</option>
+                <option>Maldives</option>
+                <option>Swiss Alps</option>
+                <option>Amalfi Coast</option>
+                <option>Kyoto</option>
+                <option>Cyclades</option>
+                <option>Provence</option>
+                <option>Bali</option>
+                <option>Norway</option>
+                <option>Marrakech</option>
+              </select>
+              <button class="btn btn--solid btn--sm" id="tripAdd" type="button">Save</button>
+            </div>
+            <p class="dash-note" id="tripNote" role="status"></p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand"><a class="brand brand--light" href="index.html" aria-label="Sojourn home"><span class="brand__mark">S</span><span class="brand__name">Sojourn</span></a><p class="footer__tagline">The art of quiet luxury travel. Fewer places, known deeply.</p></div>
+      <nav class="footer__col" aria-label="Explore"><h4 class="footer__heading">Explore</h4><a href="destinations.html">Destinations</a><a href="journal.html">Journal</a><a href="index.html#personas">Experiences</a><a href="advisory.html">Advisory</a></nav>
+      <nav class="footer__col" aria-label="House"><h4 class="footer__heading">The House</h4><a href="#" data-modal="auth">Membership</a><a href="booking.html">Plan a Trip</a><a href="#">About</a><a href="#">Contact</a></nav>
+      <nav class="footer__col" aria-label="Legal"><h4 class="footer__heading">Legal</h4><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Sustainability</a></nav>
+      <div class="footer__col footer__social"><h4 class="footer__heading">Follow</h4><a href="#">Instagram</a><a href="#">Pinterest</a><a href="#">Newsletter</a></div>
+    </div>
+    <div class="container footer__bar"><p>&copy; <span id="year">2026</span> Sojourn. All rights reserved.</p><p class="footer__made">Composed quietly, for the discerning traveler.</p></div>
+  </footer>
+
+  <!-- Auth modal -->
+  <dialog class="modal modal--sm" id="authModal" aria-labelledby="authTitle">
+    <form class="modal__panel" id="authForm" novalidate>
+      <button class="modal__close" type="button" data-close aria-label="Close">&times;</button>
+      <p class="overline">Membership</p>
+      <h2 class="modal__title" id="authTitle" data-signin="Welcome back" data-register="Join Sojourn">Welcome back</h2>
+      <p class="modal__sub" id="authSub" data-signin="Sign in to your member profile." data-register="Create your member profile.">Sign in to your member profile.</p>
+      <div class="field"><label for="auEmail">Email</label><input id="auEmail" type="email" autocomplete="email" required /></div>
+      <div class="field"><label for="auPassword">Password</label><input id="auPassword" type="password" autocomplete="current-password" minlength="6" required /></div>
+      <button class="btn btn--solid modal__submit" type="submit" id="authSubmit" data-signin="Sign In" data-register="Create Account">Sign In</button>
+      <p class="modal__note" id="authNote" role="status"></p>
+      <p class="modal__switch"><span id="authSwitchText">New to Sojourn?</span><button type="button" id="authSwitch" class="link-inline" data-signin="Create an account" data-register="Sign in instead">Create an account</button></p>
+    </form>
+  </dialog>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/supabase-client.js"></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/forms.js" defer></script>
+  <script src="js/dashboard.js" defer></script>
+</body>
+</html>
