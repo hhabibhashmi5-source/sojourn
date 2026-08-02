@@ -32,6 +32,7 @@ PAGES = {
     "article.html":      {"path": "/article.html",      "type": "article"},
     "advisory.html":     {"path": "/advisory.html",     "type": "website"},
     "booking.html":      {"path": "/booking.html",      "type": "website"},
+    "itinerary.html":    {"path": "/itinerary.html",    "type": "website"},
 }
 
 ORG = {

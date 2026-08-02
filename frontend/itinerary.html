@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Itinerary — Sojourn</title>
+  <meta name="description" content="Tell Sojourn's advisor where and how you like to travel, and receive a considered day-by-day luxury itinerary in moments — crafted by AI, refined by taste." />
+  <meta name="theme-color" content="#1C1A17" />
+  <!-- Canonical, social & structured data (Phase 5) -->
+  <link rel="canonical" href="https://hhabibhashmi5-source.github.io/sojourn/itinerary.html" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Sojourn" />
+  <meta property="og:site_name" content="Sojourn" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:title" content="AI Itinerary — Sojourn" />
+  <meta property="og:description" content="Tell Sojourn's advisor where and how you like to travel, and receive a considered day-by-day luxury itinerary in moments — crafted by AI, refined by taste." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://hhabibhashmi5-source.github.io/sojourn/itinerary.html" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&h=630&q=80" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AI Itinerary — Sojourn" />
+  <meta name="twitter:description" content="Tell Sojourn's advisor where and how you like to travel, and receive a considered day-by-day luxury itinerary in moments — crafted by AI, refined by taste." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&h=630&q=80" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","name":"AI Itinerary — Sojourn","description":"Tell Sojourn's advisor where and how you like to travel, and receive a considered day-by-day luxury itinerary in moments — crafted by AI, refined by taste.","url":"https://hhabibhashmi5-source.github.io/sojourn/itinerary.html","isPartOf":{"@id":"https://hhabibhashmi5-source.github.io/sojourn/#website"}}]}</script>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+  <style>
+    /* ---------- AI itinerary ---------- */
+    .itin-layout { display: grid; grid-template-columns: minmax(0, 420px) minmax(0, 1fr); gap: 2.5rem; align-items: start; }
+    @media (max-width: 900px) { .itin-layout { grid-template-columns: 1fr; } }
+    .itin-form { border: 1px solid var(--line); border-radius: 16px; padding: 1.75rem; background: var(--cream-2); position: sticky; top: 96px; }
+    @media (max-width: 900px) { .itin-form { position: static; } }
+    .itin-form h2 { font-size: 1.4rem; margin-bottom: 0.35rem; }
+    .itin-form__sub { color: var(--taupe); font-size: 0.9rem; margin-bottom: 1.4rem; }
+
+    .itin-result { min-height: 320px; }
+    .itin-empty { border: 1px dashed var(--line); border-radius: 16px; padding: 3.5rem 2rem; text-align: center; color: var(--taupe); }
+    .itin-empty__mark { font-family: "Cormorant Garamond", serif; font-size: 2.5rem; color: var(--gold-deep); display: block; margin-bottom: 0.5rem; }
+
+    .itin-loading { text-align: center; padding: 3rem 1rem; color: var(--taupe); }
+    .itin-spinner { width: 34px; height: 34px; border: 2px solid var(--line); border-top-color: var(--gold-deep); border-radius: 50%; margin: 0 auto 1rem; animation: itspin 0.8s linear infinite; }
+    @keyframes itspin { to { transform: rotate(360deg); } }
+    @media (prefers-reduced-motion: reduce) { .itin-spinner { animation: none; } }
+
+    .itin-doc__title { font-size: clamp(1.8rem, 4vw, 2.4rem); line-height: 1.1; margin-bottom: 0.6rem; }
+    .itin-doc__overview { color: var(--taupe); line-height: 1.7; margin-bottom: 2rem; max-width: 60ch; }
+    .itin-day { border: 1px solid var(--line); border-radius: 14px; padding: 1.3rem 1.5rem; margin-bottom: 1rem; background: var(--cream-2); }
+    .itin-day__head { display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 0.9rem; }
+    .itin-day__no { font-family: "Cormorant Garamond", serif; font-size: 1.6rem; color: var(--gold-deep); line-height: 1; }
+    .itin-day__title { font-size: 1.15rem; }
+    .itin-slot { display: grid; grid-template-columns: 88px 1fr; gap: 0.75rem; padding: 0.5rem 0; border-top: 1px solid var(--line); }
+    .itin-slot:first-of-type { border-top: none; }
+    .itin-slot__k { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--taupe-2); padding-top: 0.15rem; }
+    .itin-slot__v { color: var(--ink); line-height: 1.6; font-size: 0.95rem; }
+    .itin-tips { margin-top: 1.75rem; border: 1px solid var(--line); border-radius: 14px; padding: 1.3rem 1.5rem; }
+    .itin-tips h3 { font-size: 1rem; letter-spacing: 0.04em; margin-bottom: 0.7rem; }
+    .itin-tips ul { list-style: none; margin: 0; padding: 0; }
+    .itin-tips li { position: relative; padding-left: 1.3rem; margin-bottom: 0.5rem; color: var(--taupe); line-height: 1.6; font-size: 0.92rem; }
+    .itin-tips li::before { content: "✦"; position: absolute; left: 0; color: var(--gold-deep); font-size: 0.8rem; top: 0.15rem; }
+    .itin-actions { margin-top: 1.75rem; display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .itin-note { text-align: center; font-size: 0.9rem; margin-top: 1rem; min-height: 1.2em; }
+    .itin-note.is-error { color: #a4443a; }
+    .itin-disclaimer { font-size: 0.78rem; color: var(--taupe-2); margin-top: 1.5rem; line-height: 1.5; }
+    .is-hidden { display: none !important; }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="header header--solid" id="header">
+    <div class="header__inner container">
+      <a class="brand" href="index.html" aria-label="Sojourn home"><span class="brand__mark">S</span><span class="brand__name">Sojourn</span></a>
+      <nav class="nav" id="nav" aria-label="Primary">
+        <a class="nav__link" href="destinations.html">Destinations</a>
+        <a class="nav__link" href="journal.html">Journal</a>
+        <a class="nav__link" href="itinerary.html">AI Itinerary</a>
+        <a class="nav__link" href="advisory.html">Advisory</a>
+        <a class="nav__link" href="#" data-modal="auth">Membership</a>
+      </nav>
+      <div class="header__actions">
+        <button class="header__signin" id="signinBtn" data-modal="auth" type="button">Sign In</button>
+        <button class="header__signout" id="signoutBtn" type="button" hidden>Sign Out</button>
+        <a class="btn btn--solid btn--sm" href="booking.html">Plan Your Journey</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <nav class="mobile-menu__nav" aria-label="Mobile">
+      <a class="mobile-menu__link" href="destinations.html">Destinations</a>
+      <a class="mobile-menu__link" href="journal.html">Journal</a>
+      <a class="mobile-menu__link" href="itinerary.html">AI Itinerary</a>
+      <a class="mobile-menu__link" href="advisory.html">Advisory</a>
+      <a class="mobile-menu__link" href="#" data-modal="auth">Membership</a>
+    </nav>
+    <div class="mobile-menu__foot">
+      <a class="btn btn--solid" href="booking.html">Plan Your Journey</a>
+      <button class="mobile-menu__signin" data-modal="auth" type="button">Sign In</button>
+    </div>
+  </div>
+
+  <main id="main">
+    <section class="page-hero page-hero--cream">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span>AI Itinerary</nav>
+        <p class="overline">Composed by AI, refined by taste</p>
+        <h1 class="page-hero__title">Your itinerary, in moments</h1>
+        <p class="page-hero__sub">Tell our advisor where and how you like to travel. A considered day-by-day plan appears in seconds — a starting point your Sojourn advisor can perfect.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="itin-layout">
+
+          <!-- Form -->
+          <div class="itin-form">
+            <h2>Shape your journey</h2>
+            <p class="itin-form__sub">Only a destination is required.</p>
+            <form id="itinForm" novalidate>
+              <div class="field">
+                <label for="itDest">Destination</label>
+                <input id="itDest" type="text" placeholder="e.g. Kyoto, the Amalfi Coast…" maxlength="80" required />
+              </div>
+              <div class="field-grid">
+                <div class="field">
+                  <label for="itDays">Days</label>
+                  <input id="itDays" type="number" min="1" max="14" value="5" />
+                </div>
+                <div class="field">
+                  <label for="itMonth">When</label>
+                  <input id="itMonth" type="text" placeholder="September" maxlength="30" />
+                </div>
+              </div>
+              <div class="field-grid">
+                <div class="field">
+                  <label for="itTravelers">Travellers</label>
+                  <input id="itTravelers" type="text" placeholder="2 adults" maxlength="40" />
+                </div>
+                <div class="field">
+                  <label for="itPace">Pace</label>
+                  <select id="itPace">
+                    <option value="relaxed">Relaxed</option>
+                    <option value="balanced" selected>Balanced</option>
+                    <option value="full">Full &amp; active</option>
+                  </select>
+                </div>
+              </div>
+              <div class="field">
+                <label for="itBudget">Budget level</label>
+                <select id="itBudget">
+                  <option value="">No preference</option>
+                  <option>Comfortable</option>
+                  <option>Luxury</option>
+                  <option>Ultra-luxury</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="itInterests">Interests</label>
+                <input id="itInterests" type="text" placeholder="food, art, spa, hiking…" maxlength="200" />
+              </div>
+              <div class="field">
+                <label for="itNotes">Anything else?</label>
+                <textarea id="itNotes" rows="2" maxlength="400" placeholder="Dietary needs, must-sees, things to avoid…"></textarea>
+              </div>
+              <button class="btn btn--solid" type="submit" id="itSubmit" style="width:100%;margin-top:0.4rem;">Compose my itinerary</button>
+              <p class="itin-note" id="itNote" role="status"></p>
+            </form>
+          </div>
+
+          <!-- Result -->
+          <div class="itin-result" id="itinResult" aria-live="polite">
+            <div class="itin-empty" id="itinEmpty">
+              <span class="itin-empty__mark">✦</span>
+              <p>Your composed itinerary will appear here.<br />Fill in a destination and press <em>Compose</em>.</p>
+            </div>
+
+            <div class="itin-loading is-hidden" id="itinLoading">
+              <div class="itin-spinner"></div>
+              <p>Your advisor is composing a considered plan…<br /><small>This can take up to a minute.</small></p>
+            </div>
+
+            <article class="itin-doc is-hidden" id="itinDoc"></article>
+          </div>
+
+        </div>
+        <p class="itin-disclaimer">Itineraries are AI-generated suggestions to inspire your planning — details, openings and prices should be confirmed. For a fully arranged, human-perfected journey, <a href="booking.html">speak with a Sojourn advisor</a>.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand"><a class="brand brand--light" href="index.html" aria-label="Sojourn home"><span class="brand__mark">S</span><span class="brand__name">Sojourn</span></a><p class="footer__tagline">The art of quiet luxury travel. Fewer places, known deeply.</p></div>
+      <nav class="footer__col" aria-label="Explore"><h4 class="footer__heading">Explore</h4><a href="destinations.html">Destinations</a><a href="journal.html">Journal</a><a href="itinerary.html">AI Itinerary</a><a href="advisory.html">Advisory</a></nav>
+      <nav class="footer__col" aria-label="House"><h4 class="footer__heading">The House</h4><a href="#" data-modal="auth">Membership</a><a href="booking.html">Plan a Trip</a><a href="#">About</a><a href="#">Contact</a></nav>
+      <nav class="footer__col" aria-label="Legal"><h4 class="footer__heading">Legal</h4><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Sustainability</a></nav>
+      <div class="footer__col footer__social"><h4 class="footer__heading">Follow</h4><a href="#">Instagram</a><a href="#">Pinterest</a><a href="#">Newsletter</a></div>
+    </div>
+    <div class="container footer__bar"><p>&copy; <span id="year">2026</span> Sojourn. All rights reserved.</p><p class="footer__made">Composed quietly, for the discerning traveler.</p></div>
+  </footer>
+
+  <!-- Auth modal -->
+  <dialog class="modal modal--sm" id="authModal" aria-labelledby="authTitle">
+    <form class="modal__panel" id="authForm" novalidate>
+      <button class="modal__close" type="button" data-close aria-label="Close">&times;</button>
+      <p class="overline">Membership</p>
+      <h2 class="modal__title" id="authTitle" data-signin="Welcome back" data-register="Join Sojourn">Welcome back</h2>
+      <p class="modal__sub" id="authSub" data-signin="Sign in to your member profile." data-register="Create your member profile.">Sign in to your member profile.</p>
+      <div class="field"><label for="auEmail">Email</label><input id="auEmail" type="email" autocomplete="email" required /></div>
+      <div class="field"><label for="auPassword">Password</label><input id="auPassword" type="password" autocomplete="current-password" minlength="6" required /></div>
+      <button class="btn btn--solid modal__submit" type="submit" id="authSubmit" data-signin="Sign In" data-register="Create Account">Sign In</button>
+      <p class="modal__note" id="authNote" role="status"></p>
+      <p class="modal__switch"><span id="authSwitchText">New to Sojourn?</span><button type="button" id="authSwitch" class="link-inline" data-signin="Create an account" data-register="Sign in instead">Create an account</button></p>
+    </form>
+  </dialog>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/supabase-client.js"></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/forms.js" defer></script>
+  <script src="js/itinerary.js" defer></script>
+</body>
+</html>
