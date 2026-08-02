@@ -1,0 +1,5 @@
+# Netlify configuration for Sojourn
+# The website lives in frontend/ — publish that folder as the site root.
+# (Netlify also honours frontend/_headers for security headers, and frontend/404.html.)
+[build]
+  publish = "frontend"
