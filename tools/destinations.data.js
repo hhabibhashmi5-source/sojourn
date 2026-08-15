@@ -8,7 +8,7 @@ const U = (id, w) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=$
 
 module.exports = {
   U,
-  site: 'https://sojourn-travel.netlify.app',
+  site: 'https://sojourn-house.netlify.app',
   destinations: [
     {
       slug: 'maldives',

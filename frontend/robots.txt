@@ -6,4 +6,4 @@ Allow: /
 Disallow: /admin.html
 Disallow: /dashboard.html
 
-Sitemap: https://sojourn-travel.netlify.app/sitemap.xml
+Sitemap: https://sojourn-house.netlify.app/sitemap.xml
