@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "app.netlify.sojourn_house.twa",
+      "sha256_cert_fingerprints": [
+        "5B:BC:2F:3E:B3:8A:33:CB:7C:D9:35:09:9E:ED:9F:C0:37:73:98:83:23:E3:A5:05:FC:6E:A9:49:D4:0B:94:A2"
+      ]
+    }
+  }
+]
