@@ -138,6 +138,7 @@
 .featured__excerpt { color: var(--taupe); margin-bottom: 1.4rem; font-size: 1.02rem; }
 @media (max-width: 780px) { .featured { grid-template-columns: 1fr; } }
 .post.is-hidden { display: none; }
+.featured.is-hidden { display: none; }
 
 /* ---------- Article ---------- */
 .article { background: var(--cream); }
