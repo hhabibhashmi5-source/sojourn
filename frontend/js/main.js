@@ -162,4 +162,13 @@
   /* ---- Footer year ---- */
   const year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
+
+  /* ---- Service worker (PWA: installable + offline-resilient) ---- */
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("sw.js").catch((err) =>
+        console.warn("[Sojourn] SW registration failed:", err)
+      );
+    });
+  }
 })();
