@@ -37,10 +37,58 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hhabibhashmi5-source.github.io/sojourn/destination.html</loc>
-    <lastmod>2026-07-20</lastmod>
+    <loc>https://hhabibhashmi5-source.github.io/sojourn/maldives.html</loc>
+    <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hhabibhashmi5-source.github.io/sojourn/swiss-alps.html</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hhabibhashmi5-source.github.io/sojourn/amalfi-coast.html</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hhabibhashmi5-source.github.io/sojourn/kyoto.html</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hhabibhashmi5-source.github.io/sojourn/cyclades.html</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hhabibhashmi5-source.github.io/sojourn/provence.html</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hhabibhashmi5-source.github.io/sojourn/bali.html</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hhabibhashmi5-source.github.io/sojourn/norway.html</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hhabibhashmi5-source.github.io/sojourn/marrakech.html</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hhabibhashmi5-source.github.io/sojourn/article.html</loc>
