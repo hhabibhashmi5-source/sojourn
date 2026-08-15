@@ -17,3 +17,9 @@ Thumbs.db
 # and is safe to commit; never add the service_role key or a .env with secrets)
 .env
 .env.*
+
+# App packaging artifacts — kept locally / deployed to Netlify, not versioned
+*.apk
+*.aab
+*.zip
+*.keystore

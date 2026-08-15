@@ -208,7 +208,7 @@ const foot = (d) => `
         <p class="footer__tagline">The art of quiet luxury travel. Fewer places, known deeply.</p>
       </div>
       <nav class="footer__col" aria-label="Explore"><h4 class="footer__heading">Explore</h4><a href="destinations.html">Destinations</a><a href="journal.html">Journal</a><a href="index.html#personas">Experiences</a><a href="advisory.html">Advisory</a></nav>
-      <nav class="footer__col" aria-label="House"><h4 class="footer__heading">The House</h4><a href="#" data-modal="auth">Membership</a><a href="#" data-modal="inquiry">Concierge</a><a href="#">About</a><a href="#">Contact</a></nav>
+      <nav class="footer__col" aria-label="House"><h4 class="footer__heading">The House</h4><a href="#" data-modal="auth">Membership</a><a href="#" data-modal="inquiry">Concierge</a><a href="about.html">About</a><a href="#">Contact</a></nav>
       <nav class="footer__col" aria-label="Legal"><h4 class="footer__heading">Legal</h4><a href="privacy.html">Privacy</a><a href="#">Terms</a><a href="#">Sustainability</a></nav>
       <div class="footer__col footer__social"><h4 class="footer__heading">Follow</h4><a href="#">Instagram</a><a href="#">Pinterest</a><a href="#">Newsletter</a></div>
     </div>
