@@ -1,0 +1,9 @@
+# Next.js
+/node_modules
+/.next
+/out
+
+# misc
+*.log
+.DS_Store
+.env*.local

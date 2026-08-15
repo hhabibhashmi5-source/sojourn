@@ -1,0 +1,17 @@
+{
+  "name": "sojourn-web",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Sojourn — quiet-luxury travel platform (Next.js)",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "^15.1.6",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "@supabase/supabase-js": "^2.48.1"
+  }
+}
