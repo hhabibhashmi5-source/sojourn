@@ -1,0 +1,57 @@
+SOJOURN — GOOGLE PLAY STORE LISTING
+====================================
+
+APP NAME
+Sojourn
+
+SHORT DESCRIPTION (max 80 characters)
+Quiet-luxury travel: curated escapes, journal essays & bespoke advisory.
+
+FULL DESCRIPTION (max 4000 characters)
+Sojourn is a members' house for quiet luxury travel — a calmer way to plan
+journeys that mean something. Fewer places, known deeply. Privacy over
+spectacle, presence over pace.
+
+Browse a curated atlas of destinations chosen for depth rather than noise —
+private islands, cliffside coasts, alpine retreats and cultural capitals —
+each with where to stay, when to go and why it's worth the distance.
+
+WHAT'S INSIDE
+• The Atlas — a small, considered book of destinations, filterable by the kind
+  of trip you're after: islands, coast, mountains, culture or countryside.
+• The Journal — long-form essays on travelling slowly and well: shoulder-season
+  strategy, conscious luxury, wellness, design and the culture of going deeper.
+• AI Itinerary — tell us where and how you like to travel and receive a
+  considered, day-by-day plan in moments, ready for an advisor to perfect.
+• Bespoke Advisory — a dedicated advisor and a black book most travellers never
+  see, so a trip is planned end to end and you simply arrive.
+• Your account — save destinations to a private wishlist and keep your requests
+  in one quiet place.
+
+Sojourn is designed to be fast, elegant and distraction-free, and works offline
+for the pages you've already visited.
+
+No noise. A few considered notes a season. Travel, distilled to what matters.
+
+CATEGORY
+Travel & Local
+
+TAGS / KEYWORDS
+luxury travel, quiet luxury, travel planning, itinerary, bespoke travel,
+destinations, travel journal, concierge
+
+CONTACT / DETAILS
+Website:        https://sojourn-house.netlify.app
+Privacy policy: https://sojourn-house.netlify.app/privacy.html
+Contact email:  [add your contact email]
+
+GRAPHICS (in this folder)
+App icon (512x512):     icon-512.png
+Feature graphic (1024x500): feature-graphic-1024x500.png
+Phone screenshots:      screenshots/01-home.png … 05-destination.png
+
+NOTES
+- Before publishing, replace "[add your contact email]" here and in privacy.html.
+- Play Console also asks for a Data safety form: declare that you collect email
+  (newsletter/account), name and enquiry details, and that data is encrypted in
+  transit and can be deleted on request (see the privacy policy).
