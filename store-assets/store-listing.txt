@@ -43,7 +43,7 @@ destinations, travel journal, concierge
 CONTACT / DETAILS
 Website:        https://sojourn-house.netlify.app
 Privacy policy: https://sojourn-house.netlify.app/privacy.html
-Contact email:  [add a contact email — Play Store requires one; a dedicated address is fine]
+Contact email:  hhabibhashmi5@gmail.com
 
 GRAPHICS (in this folder)
 App icon (512x512):     icon-512.png
@@ -51,7 +51,7 @@ Feature graphic (1024x500): feature-graphic-1024x500.png
 Phone screenshots:      screenshots/01-home.png … 05-destination.png
 
 NOTES
-- Contact email ([add a contact email — Play Store requires one; a dedicated address is fine]) is set here and in privacy.html.
+- Contact email (hhabibhashmi5@gmail.com) is set here and in privacy.html.
 - Play Console also asks for a Data safety form: declare that you collect email
   (newsletter/account), name and enquiry details, and that data is encrypted in
   transit and can be deleted on request (see the privacy policy).
