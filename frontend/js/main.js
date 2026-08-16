@@ -163,6 +163,26 @@
   const year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
 
+  /* ---- Privacy notice (shown once, on first visit) ---- */
+  try {
+    if (!localStorage.getItem("sojourn-privacy-ack")) {
+      const pb = document.createElement("div");
+      pb.className = "privacy-banner";
+      pb.setAttribute("role", "dialog");
+      pb.setAttribute("aria-label", "Privacy notice");
+      pb.innerHTML =
+        '<p class="privacy-banner__text">We use only the data needed to run Sojourn. See our <a href="privacy.html">Privacy Policy</a>.</p>' +
+        '<button class="btn btn--solid btn--sm privacy-banner__ok" type="button">Got it</button>';
+      document.body.appendChild(pb);
+      requestAnimationFrame(() => pb.classList.add("is-shown"));
+      pb.querySelector(".privacy-banner__ok").addEventListener("click", () => {
+        try { localStorage.setItem("sojourn-privacy-ack", "1"); } catch (e) {}
+        pb.classList.remove("is-shown");
+        setTimeout(() => pb.remove(), 350);
+      });
+    }
+  } catch (e) { /* localStorage unavailable — skip the notice */ }
+
   /* ---- Service worker (PWA: installable + offline-resilient) ---- */
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {

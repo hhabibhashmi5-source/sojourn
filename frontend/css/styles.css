@@ -593,3 +593,19 @@ body.modal-open { overflow: hidden; }
   .reveal { opacity: 1; transform: none; }
   .hero__media { transform: none; }
 }
+
+/* ---------- Privacy notice (shown on first visit) ---------- */
+.privacy-banner {
+  position: fixed; left: 1rem; right: 1rem; bottom: 1rem; z-index: 200;
+  max-width: 760px; margin: 0 auto;
+  display: flex; align-items: center; gap: 1rem 1.25rem; flex-wrap: wrap; justify-content: space-between;
+  background: var(--ink); color: var(--cream);
+  padding: 0.9rem 1.25rem; border-radius: 14px;
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.28);
+  opacity: 0; transform: translateY(14px);
+  transition: opacity 0.35s var(--ease), transform 0.35s var(--ease);
+}
+.privacy-banner.is-shown { opacity: 1; transform: none; }
+.privacy-banner__text { margin: 0; flex: 1; min-width: 220px; font-size: 0.85rem; line-height: 1.5; color: var(--cream); }
+.privacy-banner__text a { color: var(--gold); text-decoration: underline; }
+.privacy-banner__ok { flex-shrink: 0; }
