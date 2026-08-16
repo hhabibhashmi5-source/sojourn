@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Private, member/owner-only areas: keep out of search results
-Disallow: /admin.html
-Disallow: /dashboard.html
+Disallow: /sojourn/admin.html
+Disallow: /sojourn/dashboard.html
 
-Sitemap: https://sojourn-house.netlify.app/sitemap.xml
+Sitemap: https://hhabibhashmi5-source.github.io/sojourn/sitemap.xml

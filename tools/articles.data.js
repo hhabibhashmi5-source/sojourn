@@ -5,7 +5,7 @@
 // one, look at it first (see the note at the top of destinations.data.js).
 
 module.exports = {
-  site: 'https://sojourn-house.netlify.app',
+  site: 'https://hhabibhashmi5-source.github.io/sojourn',
   articles: [
     {
       slug: 'shoulder-season-is-the-new-peak',
